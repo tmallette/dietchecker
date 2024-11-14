@@ -35,11 +35,12 @@ export default function ImageUploader() {
 
         try {
             const { data: { text } } = await Tesseract.recognize( imageUrl, 'eng' );
+            console.log(text);
             const messageFromGroq = await requestGroq(text);
 
             setText(`${messageFromGroq.choices[0].message.content}`);
         } catch (error) {
-            console.error('Error performing OCR:', error);
+            console.error('Error');
             setText('Error extracting text');
         } finally {
             setLoading(false);

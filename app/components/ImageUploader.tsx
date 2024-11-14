@@ -1,12 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Tesseract from 'tesseract.js';
 import { requestGroq } from '@/app/actions/actions';
 
 export default function ImageUploader() {
+    const [isMobile, setIsMobile] = useState(false);
     const [text, setText] = useState('');
     const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+          const userAgent = (navigator.userAgent || navigator.vendor || (window as any)?.opera).toLowerCase();
+          setIsMobile(/android|iPhone|iPad|iPod|opera mini|mobile|blackberry/i.test(userAgent));
+        }
+      }, []);
 
     const handleImageChange = async (ev : React.ChangeEvent<HTMLInputElement>) => {
         const file = ev?.target?.files?.[0];
@@ -41,7 +49,7 @@ export default function ImageUploader() {
             setText(`${messageFromGroq.choices[0].message.content}`);
         } catch (error) {
             console.error('Error performing OCR:', error);
-            setText('Error extracting text');
+            setText('Error extracting text.');
         } finally {
             setLoading(false);
         }
@@ -53,7 +61,7 @@ export default function ImageUploader() {
                 <div>Drop and image file here</div>
                 <div className='mb-2'>or</div>
                 <label className='btn btn-secondary'>
-                    <span>Browse</span>
+                    <span>{isMobile ? 'A take picture' : 'Browse' }</span>
                     <input name='image' type='file' accept='image/*' capture='environment' onChange={handleImageChange} className='absolute -z-10 w-1 h-1' />
                 </label>
             </div>

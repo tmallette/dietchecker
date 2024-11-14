@@ -61,6 +61,10 @@ export default function ImageUploader() {
             <div className='flex items-center justify-center bg-neutral-content min-h-32 mt-20 w-[90%] border-2 border-base-300'>
                 {loading ? (<span className="loading loading-dots loading-lg text-secondary"></span>) : (text && <p className='m-4'>{text}</p>)}
             </div>
+
+            <div className='flex items-center justify-center text-primary mt-4'>
+                These answers are using Groq AI. Always double check results, because AI is not always right.
+            </div>
         </div>
     );
 }

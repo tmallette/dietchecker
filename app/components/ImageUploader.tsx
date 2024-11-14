@@ -11,7 +11,7 @@ export default function ImageUploader() {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-          const userAgent = (navigator.userAgent || navigator.vendor || (window as any)?.opera).toLowerCase();
+          const userAgent = navigator.userAgent.toLowerCase();
           setIsMobile(/android|iPhone|iPad|iPod|opera mini|mobile|blackberry/i.test(userAgent));
         }
       }, []);

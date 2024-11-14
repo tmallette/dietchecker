@@ -40,7 +40,7 @@ export default function ImageUploader() {
 
             setText(`${messageFromGroq.choices[0].message.content}`);
         } catch (error) {
-            console.error('Error');
+            console.error('Error: ', error);
             setText('Error extracting text');
         } finally {
             setLoading(false);

@@ -51,7 +51,7 @@ export default function ImageUploader() {
 
             setExtracted(text);
 
-        } catch(err) {
+        } catch(_) {
             setExtracted('Unable to extract text from image.');
         }
 
@@ -59,7 +59,7 @@ export default function ImageUploader() {
             try {
                 const messageFromGroq = await requestGroq(diet, imageResults);
                 setResults(`${messageFromGroq.choices[0].message.content}`);
-            } catch(err) {
+            } catch(_) {
                 setResults('Unable to retrieve data from AI.');
             } finally {
                 setLoading(false);

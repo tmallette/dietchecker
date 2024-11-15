@@ -51,7 +51,7 @@ export default function ImageUploader() {
 
             setExtracted(text);
 
-        } catch(error) {
+        } catch {
             setExtracted('Unable to extract text from image.');
         }
 
@@ -59,7 +59,7 @@ export default function ImageUploader() {
             try {
                 const messageFromGroq = await requestGroq(diet, imageResults);
                 setResults(`${messageFromGroq.choices[0].message.content}`);
-            } catch(error) {
+            } catch {
                 setResults('Unable to retrieve data from AI.');
             } finally {
                 setLoading(false);
@@ -136,7 +136,7 @@ export default function ImageUploader() {
                         {loading ? (<span className="loading loading-dots loading-lg text-secondary"></span>) : (results && <p className='m-4'>{results}</p>)}
                     </div>
                     <div className='flex items-center justify-center text-primary mt-4'>
-                        Your image is read with Tesseract.js and then those results are sent to Groq AI. Your image won't always be read correctly and AI can be wrong. Always verify results.
+                        Your image is read with Tesseract.js and then those results are sent to Groq AI. Your image won&#39;t always be read correctly and AI can be wrong. Always verify results.
                     </div>
                 </>):null}
             </>)}

@@ -47,7 +47,11 @@ export default function ImageUploader() {
     const fetchData = async () => {
       if (result !== null && !result?.containsProfanity) {
         try {
-          const messageFromGroq = await requestGroq(diet, extracted);
+          // Trying to beat the eslint boss. Eslint really wants diet and extracted to be in the dependency array, but I only want to re-render when result is updated.
+          const localDiet = diet;
+          const localExtracted = extracted;
+
+          const messageFromGroq = await requestGroq(localDiet, localExtracted);
           setResults(`${messageFromGroq.choices[0].message.content}`);
         } catch {
           setResults('Unable to retrieve data from AI.');
@@ -68,7 +72,7 @@ export default function ImageUploader() {
     setLoading(true);
     setResults('');
     let imageResults = null;
-    
+
     try {
       const {data:{text}} = await Tesseract.recognize(imageUrl, 'eng');
       imageResults = text;

@@ -116,7 +116,7 @@ export default function ImageUploader() {
       <div onDrop={handleDrop} onDragOver={handleDragOver} className="relative min-h-[300px] p-4 m-4 mt-8 cursor-pointer bg-base-200 border-dashed border-2 border-base-300 w-full flex flex-col items-center justify-center">
         <div className="absolute md:left-[60px] top-[60px] md:top-auto max-w-[200px] rotate-[-20deg] border-2 border-veganDarkGreen p-4 pointer-events-none">
           <div className="border-b-2 border-veganDarkGreen text-veganDarkGreen text-2xl font-bold">100% JUICE</div>
-          <div className="text-veganDarkGreen"><span className="font-bold">Ingregients:</span> Orange juice from concentrate (Filtered water, and orange juice concentrate ).</div>
+          <div className="text-veganDarkGreen"><span className="font-bold">Ingredients:</span> Orange juice from concentrate (Filtered water, and orange juice concentrate ).</div>
         </div>
         <div className="mt-72 md:mt-0">Drop an image file of an ingredients list</div>
         <div className="mb-2">or</div>

@@ -12,7 +12,7 @@ const alegreyaSans = Alegreya_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Is this Vegan?',
+  title: 'Is that Vegan?',
   description: 'An app to check ingredients',
 }
 

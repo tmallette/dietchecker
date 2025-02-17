@@ -3,7 +3,7 @@ import React from 'react';
 export default function page() {
   return <section className="text-lg">
       <h1 className="text-6xl mt-48 mb-2 font-bold text-veganLightGreen">About</h1>
-      <p>Is This Vegan is a free tool that helps determine whether food ingredients are vegan using AI and image parsing. AI-generated results may not always be accurate, so always verify ingredient information independently.</p>
+      <p>Is That Vegan is a free tool that helps determine whether food ingredients are vegan using AI and image parsing. AI-generated results may not always be accurate, so always verify ingredient information independently.</p>
 
       <h2 className="text-2xl mt-4 mb-0 font-bold text-veganLightGreen">Attribution</h2>
       <p>No attribution is required for using this tool.</p>
